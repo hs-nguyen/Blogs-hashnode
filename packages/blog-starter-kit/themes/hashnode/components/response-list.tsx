@@ -69,7 +69,7 @@ function ResponseList(props: Props) {
 		<div className="mx-2 pb-10 lg:mx-0" id="comments-list">
 			<PostComments />
 			{isLoading &&
-				[...Array(3).keys()].map((val: number) => (
+				Array.from({ length: 3 }, (_, val) => (
 					<div
 						key={`comments-list-loader-${val}`}
 						className="border-b-1/2 animate-pulse dark:border-slate-700"
@@ -89,7 +89,7 @@ function ResponseList(props: Props) {
 							</div>
 						</div>
 					</div>
-				))}
+				)}
 		</div>
 	);
 }
