@@ -18,7 +18,7 @@ import { createHeaders, createSSRExchange, getUrqlClientConfig } from '../../lib
 import PublicationPosts from '../../components/publication-posts';
 import PublicationFooter from '../../components/publication-footer';
 
-const INITIAL_LIMIT = 6;
+const INITIAL_LIMIT = 30;
 
 type Props = {
 	posts:  NonNullable<TagInitialQuery['publication']>['posts'];
