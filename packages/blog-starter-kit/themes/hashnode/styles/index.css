@@ -4,16 +4,16 @@
 
 /* Custom Brand Colors */
 :root {
-  --brand-primary: #d946ef;
-  --brand-primary-hover: #c026d3;
+  --brand-primary: #0000FF;
+  --brand-primary-hover: #0000FF;
   --brand-accent: #f97316;
   --brand-accent-hover: #ea580c;
   --brand-gradient: linear-gradient(135deg, #d946ef 0%, #f97316 100%);
 }
 
 .dark {
-  --brand-primary: #e879f9;
-  --brand-primary-hover: #d946ef;
+  --brand-primary: #0000FF;
+  --brand-primary-hover: #0000FF;
   --brand-accent: #fb923c;
   --brand-accent-hover: #f97316;
 }
@@ -382,6 +382,15 @@ a.user-mention:hover {
 }
 
 .project-link {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--brand-primary);
+  font-weight: 600;
+  font-size: 0.875rem;
+  transition: all 0.3s ease;
+}
+.Source-code-link {
   display: flex;
   align-items: center;
   gap: 0.5rem;
