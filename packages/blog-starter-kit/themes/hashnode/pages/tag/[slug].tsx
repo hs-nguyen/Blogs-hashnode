@@ -18,7 +18,7 @@ import { createHeaders, createSSRExchange, getUrqlClientConfig } from '../../lib
 import PublicationPosts from '../../components/publication-posts';
 import PublicationFooter from '../../components/publication-footer';
 
-const INITIAL_LIMIT = 30;
+const INITIAL_LIMIT = 6;
 
 type Props = {
 	posts:  NonNullable<TagInitialQuery['publication']>['posts'];
@@ -37,7 +37,7 @@ export default function Post({ publication, posts, tag, slug, currentMenuId }: P
 		requestPolicy: 'cache-first',
 	});
 	const postData = data?.publication?.posts || posts;
-	const fetchedOnce = !!after;
+	const fetchedOnce = postData.edges.length > INITIAL_LIMIT;
 
 	const fetchMore = () => {
 		if (postData.pageInfo.hasNextPage) {

@@ -27,7 +27,7 @@ type Props = GetServerSideProps &
     initialLimit: number;
 	currentMenuId: string;
   };
-const INITIAL_LIMIT = 30;
+const INITIAL_LIMIT = 6;
 export default function Series({ series, publication, posts, seriesSlug, currentMenuId }: Props) {
 	const title = `${series.name} - ${publication.title}`;
 	const [after, setAfter] = useState<string | null>(null);
