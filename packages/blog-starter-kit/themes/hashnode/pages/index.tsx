@@ -200,8 +200,7 @@ export const getStaticProps = async () => {
 	const { publication } = publicationInfo.data;
 
 	const subtractValue = publication.pinnedPost ? 1 : 0;
-	const initialLimit =
-		publication.preferences.layout === 'magazine' ? 12 - subtractValue : 6 - subtractValue;
+	const initialLimit = 50; // Fetch all articles
 
 	const homePagePostsVariables: HomePagePostsQueryVariables = {
 		host,
