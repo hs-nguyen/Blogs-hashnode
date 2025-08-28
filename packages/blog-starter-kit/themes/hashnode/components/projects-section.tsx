@@ -7,19 +7,16 @@ type Props = {
 };
 
 export const ProjectsSection = ({ posts, publication }: Props) => {
-  const displayedPosts = posts.slice(0, 6);
-  const hasMorePosts = posts.length > 6;
+  const displayedPosts = posts.slice(0, 100);
+  const hasMorePosts = posts.length > 100;
 
   return (
     <section className="projects-section py-16 px-4">
       <div className="container mx-auto max-w-6xl">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-heading font-bold text-gray-900 dark:text-white mb-4">
-            My Projects
+            Technical Projects List
           </h2>
-          <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-            Explore my latest work, tutorials, and insights in web development and technology.
-          </p>
         </div>
         
         <div className="projects-grid">

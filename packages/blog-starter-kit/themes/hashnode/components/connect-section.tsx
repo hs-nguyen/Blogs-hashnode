@@ -16,7 +16,6 @@ export const ConnectSection = ({ publication }: Props) => {
           </h2>
           
           <p className="text-lg text-gray-600 dark:text-gray-300 mb-8 max-w-2xl mx-auto">
-            Let&apos;s build something amazing together. Reach out through any of these platforms.
           </p>
           
           <div className="flex flex-wrap justify-center gap-4 mb-8">
@@ -64,7 +63,7 @@ export const ConnectSection = ({ publication }: Props) => {
           </div>
           
           <div className="text-sm text-gray-500 dark:text-gray-400">
-            <p>Available for freelance projects and collaborations</p>
+            <p></p>
           </div>
         </div>
       </div>
