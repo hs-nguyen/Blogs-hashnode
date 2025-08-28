@@ -391,14 +391,14 @@ a.user-mention:hover {
   transition: all 0.3s ease;
 }
 .custom-signup-btn {
-  background-color: var(--brand-600) !important;
-  border-color: var(--brand-600) !important;
+  background-color: var(--brand-primary) !important;
+  border-color: var(--brand-primary) !important;
   color: white !important;
 }
 
 .custom-signup-btn:hover {
-  background-color: var(--brand-700) !important;
-  border-color: var(--brand-700) !important;
+  background-color: var(--brand-primary) !important;
+  border-color: var(--brand-primary) !important;
 }
 .project-arrow {
   width: 1rem;

@@ -7,8 +7,8 @@ type Props = {
 };
 
 export const ProjectsSection = ({ posts, publication }: Props) => {
-  const displayedPosts = posts.slice(0, 10);
-  const hasMorePosts = posts.length > 10;
+  const displayedPosts = posts.slice(0, 30);
+  const hasMorePosts = posts.length > 30;
 
   return (
     <section className="projects-section py-16 px-4">
