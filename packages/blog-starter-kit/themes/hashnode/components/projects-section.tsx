@@ -1,5 +1,3 @@
-import { twJoin } from 'tailwind-merge';
-import Link from 'next/link';
 import { Publication } from '../generated/graphql';
 
 type Props = {
@@ -23,56 +21,60 @@ export const ProjectsSection = ({ posts, publication }: Props) => {
           </p>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="projects-grid">
           {displayedPosts.map((post, index) => (
-            <Link key={post.id} href={`/${post.slug}`}>
-              <article className="project-card brand-card group cursor-pointer h-full" style={{ animationDelay: `${index * 100}ms` }}>
-                <div className="p-6">
-                  <div className="flex items-center gap-2 mb-4">
-                    {post.tags?.slice(0, 2).map((tag: any) => (
-                      <span
-                        key={tag.id}
-                        className="px-3 py-1 text-xs font-medium bg-brand-100 text-brand-700 dark:bg-brand-900/30 dark:text-brand-300 rounded-full"
-                      >
-                        {tag.name}
-                      </span>
-                    ))}
+            <a key={post.id} href={`/${post.slug}`}>
+              <article 
+                className="project-item brand-card group cursor-pointer" 
+                style={{ animationDelay: `${index * 150}ms` }}
+                onClick={(e: any) => {
+                  e.currentTarget.classList.add('project-clicked');
+                }}
+              >
+                <div className="project-content">
+                  <div className="project-header">
+                    <div className="project-tags">
+                      {post.tags?.slice(0, 2).map((tag: any) => (
+                        <span key={tag.id} className="project-tag">
+                          {tag.name}
+                        </span>
+                      ))}
+                    </div>
+                    <span className="project-date">
+                      {new Date(post.publishedAt).toLocaleDateString()}
+                    </span>
                   </div>
                   
-                  <h3 className="text-xl font-heading font-semibold text-gray-900 dark:text-white mb-3 group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors duration-200">
+                  <h3 className="project-title">
                     {post.title}
                   </h3>
                   
-                  <p className="text-gray-600 dark:text-gray-300 text-sm mb-4 line-clamp-3">
+                  <p className="project-description">
                     {post.brief}
                   </p>
                   
-                  <div className="flex items-center justify-between mt-auto">
-                    <span className="text-xs text-gray-500 dark:text-gray-400">
-                      {new Date(post.publishedAt).toLocaleDateString()}
-                    </span>
-                    
-                    <div className="flex items-center text-brand-600 dark:text-brand-400 font-medium text-sm group-hover:translate-x-1 transition-transform duration-200">
-                      Read more
-                      <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <div className="project-footer">
+                    <div className="project-link">
+                      <span>View Project</span>
+                      <svg className="project-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                       </svg>
                     </div>
                   </div>
                 </div>
               </article>
-            </Link>
+            </a>
           ))}
         </div>
         
         {hasMorePosts && (
-          <div className="text-center mt-12">
-            <Link href="/" className="btn-primary inline-flex items-center gap-2 px-8 py-3 group">
-              View All Projects
-              <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <div className="projects-more">
+            <a href="/" className="btn-primary view-all-btn">
+              <span>View All Projects</span>
+              <svg className="btn-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </svg>
-            </Link>
+            </a>
           </div>
         )}
       </div>
