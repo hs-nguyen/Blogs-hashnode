@@ -2,14 +2,40 @@
 @tailwind components;
 @tailwind utilities;
 
-.article-width {
-  width: 800px;
+/* Custom Brand Colors */
+:root {
+  --brand-primary: #d946ef;
+  --brand-primary-hover: #c026d3;
+  --brand-accent: #f97316;
+  --brand-accent-hover: #ea580c;
+  --brand-gradient: linear-gradient(135deg, #d946ef 0%, #f97316 100%);
 }
 
-@media (max-width: 800px) {
+.dark {
+  --brand-primary: #e879f9;
+  --brand-primary-hover: #d946ef;
+  --brand-accent: #fb923c;
+  --brand-accent-hover: #f97316;
+}
+
+.article-width {
+  width: 900px;
+  max-width: 90vw;
+}
+
+@media (max-width: 900px) {
   .article-width {
     width: 100% !important;
   }
+}
+
+/* Brand styling enhancements */
+.brand-card {
+  @apply bg-white/80 backdrop-blur-sm border border-brand-200/20 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300;
+}
+
+.dark .brand-card {
+  @apply bg-slate-900/80 border-brand-800/20;
 }
 
 /* Tooltip start */
@@ -220,15 +246,20 @@ li p {
 }
 
 a.user-mention {
-  color: #2962ff !important;
+  color: var(--brand-primary) !important;
   --tw-border-opacity: 1;
-  border-color: rgba(158, 158, 158, var(--tw-border-opacity));
-  /* border-style: dashed; */
+  border-color: var(--brand-primary);
   border-bottom-width: 2px;
   display: inline;
   font-weight: 500;
   line-height: 1.375;
   text-decoration: none !important;
+  transition: all 0.2s ease;
+}
+
+a.user-mention:hover {
+  color: var(--brand-primary-hover) !important;
+  border-color: var(--brand-primary-hover);
 }
 
 img.image--center {
@@ -293,6 +324,15 @@ img.image--right {
     @apply ring-slate-950/80 ring-offset-custom-header;
   } */
   .focus-ring-colors-base {
-    @apply ring-blue-600 ring-offset-white dark:ring-offset-slate-800;
+    @apply ring-brand-500 ring-offset-white dark:ring-offset-slate-800;
+  }
+  .btn-primary {
+    @apply bg-brand-500 hover:bg-brand-600 text-white font-medium px-6 py-2 rounded-lg transition-colors;
+  }
+  .btn-accent {
+    @apply bg-accent-500 hover:bg-accent-600 text-white font-medium px-6 py-2 rounded-lg transition-colors;
+  }
+  .brand-gradient {
+    background: var(--brand-gradient);
   }
 }

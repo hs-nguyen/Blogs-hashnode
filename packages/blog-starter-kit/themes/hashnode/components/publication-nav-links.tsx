@@ -58,10 +58,10 @@ function PublicationNavLinks(props: Props) {
             <Link
               className={twJoin(
                 item.isActive ? 'blog-nav-active' : 'blog-nav',
-                'group flex items-center justify-center border-b-2 border-transparent px-2 capitalize focus:outline-none',
+                'group flex items-center justify-center border-b-2 border-transparent px-3 capitalize focus:outline-none',
                 item.isActive
-                  ? 'border-black dark:border-slate-50'
-                  : '',
+                  ? 'border-brand-500 dark:border-brand-400'
+                  : 'hover:border-brand-300 dark:hover:border-brand-600',
               )}
               key={item.label}
               href={item.url}
@@ -69,11 +69,11 @@ function PublicationNavLinks(props: Props) {
               <span
                 className={twJoin(
                   'blog-nav-text',
-                  'mb-2 block rounded-lg px-2 py-1 ring-offset-2 transition-colors duration-150 group-focus:ring',
-                'text-slate-900 hover:bg-slate-100 group-focus:ring-blue-600 group-focus:ring-offset-white dark:text-white dark:hover:bg-slate-800 dark:group-focus:ring-offset-slate-800',
+                  'mb-2 block rounded-lg px-3 py-2 ring-offset-2 transition-all duration-200 group-focus:ring',
+                  'text-slate-900 hover:bg-brand-50 hover:text-brand-700 group-focus:ring-brand-500 group-focus:ring-offset-white dark:text-white dark:hover:bg-brand-900/20 dark:hover:text-brand-300 dark:group-focus:ring-offset-slate-800',
                   item.isActive
-                    ? 'font-semibold text-opacity-100 dark:text-opacity-100'
-                    : 'font-medium text-opacity-70 dark:text-opacity-70',
+                    ? 'font-semibold text-brand-600 dark:text-brand-400 bg-brand-50 dark:bg-brand-900/20'
+                    : 'font-medium text-opacity-80 dark:text-opacity-80',
                 )}
               >
                 {item.label}
@@ -98,18 +98,18 @@ function PublicationNavLinks(props: Props) {
                   isActiveItemInDropdown ? 'blog-nav-active' : 'blog-nav',
                   'group ml-2 border-b-2 border-transparent focus:outline-none active:outline-none',
                   isActiveItemInDropdown
-                    ?'border-black dark:border-slate-50'
-                    : '',
+                    ? 'border-brand-500 dark:border-brand-400'
+                    : 'hover:border-brand-300 dark:hover:border-brand-600',
                 )}
               >
                 <div
                   className={twJoin(
                     'blog-nav-text',
-                    'mb-2 flex flex-row items-center rounded-lg px-2 py-1 ring-offset-2 transition-colors duration-150 group-focus:ring',
-                 'text-black hover:bg-slate-100 group-focus:ring-blue-600 group-focus:ring-offset-white dark:text-white dark:hover:bg-slate-800 dark:group-focus:ring-offset-slate-800',
+                    'mb-2 flex flex-row items-center rounded-lg px-3 py-2 ring-offset-2 transition-all duration-200 group-focus:ring',
+                    'text-black hover:bg-brand-50 hover:text-brand-700 group-focus:ring-brand-500 group-focus:ring-offset-white dark:text-white dark:hover:bg-brand-900/20 dark:hover:text-brand-300 dark:group-focus:ring-offset-slate-800',
                     isActiveItemInDropdown
-                      ? 'font-semibold text-opacity-100 dark:text-opacity-100'
-                      : 'font-medium text-opacity-70 dark:text-opacity-70',
+                      ? 'font-semibold text-brand-600 dark:text-brand-400 bg-brand-50 dark:bg-brand-900/20'
+                      : 'font-medium text-opacity-80 dark:text-opacity-80',
                   )}
                 >
                   <span className="capitalize">

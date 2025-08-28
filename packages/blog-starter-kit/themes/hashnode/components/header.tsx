@@ -19,10 +19,10 @@ export const Header = (props: Props) => {
 
 	return (
 		<header
-			className="blog-header relative z-50 w-full border-b border-black/10 bg-white bg-opacity-70 dark:border-white/10 dark:bg-slate-900 dark:bg-opacity-70"
+			className="blog-header relative z-50 w-full border-b border-brand-200/20 bg-white/80 backdrop-blur-md dark:border-brand-800/20 dark:bg-slate-900/80"
 		>
-			<div className="container mx-auto px-2 md:px-4 2xl:px-10">
-				<div className="relative z-40 flex flex-row items-center justify-between pb-2 pt-8 md:mb-4">
+			<div className="container mx-auto px-4 md:px-6 2xl:px-12">
+				<div className="relative z-40 flex flex-row items-center justify-between py-4 md:py-6">
 					<div className="flex flex-row items-center py-1">
 						{/* Navigation for mobile view */}
 						<div
@@ -39,16 +39,16 @@ export const Header = (props: Props) => {
 
 					<div
 						className={twJoin(
-							'flex flex-row items-center','dark:text-white',
+							'flex flex-row items-center gap-4','dark:text-white',
 						)}
 					>
 						<HeaderBlogSearch publication={publication} />
-						<Button as="a" href="#" type="primary" label="Sign up" />
+						<Button as="a" href="#" type="primary" label="Subscribe" className="btn-primary" />
 					</div>
 				</div>
 
 				{/* Logo for mobile view */}
-				<div className="mx-auto my-5 flex w-2/3 flex-row items-center justify-center md:hidden">
+				<div className="mx-auto my-6 flex w-2/3 flex-row items-center justify-center md:hidden">
 					<PublicationLogo publication={publication} size="xl" />
 				</div>
 
@@ -68,15 +68,16 @@ export const Header = (props: Props) => {
 				</div>
 
 				<div
-					className="relative mt-8 hidden flex-row items-center justify-center overflow-hidden text-base md:flex"
-					data-tom="hidden md:flex relative flex-row items-center justify-center overflow-hidden text-base mt-8"
+					className="relative mt-6 hidden flex-row items-center justify-center overflow-hidden text-base md:flex"
 				>
-					<PublicationNavLinks
-						isHome={isHome}
-						currentActiveMenuItemId={currentMenuId}
-						enabledPages={publication.preferences?.enabledPages}
-						navbarItems={publication.preferences?.navbarItems || []}
-					/>
+					<div className="rounded-full bg-gradient-to-r from-brand-50 to-accent-50 p-1 dark:from-brand-900/20 dark:to-accent-900/20">
+						<PublicationNavLinks
+							isHome={isHome}
+							currentActiveMenuItemId={currentMenuId}
+							enabledPages={publication.preferences?.enabledPages}
+							navbarItems={publication.preferences?.navbarItems || []}
+						/>
+					</div>
 				</div>
 			</div>
 		</header>
