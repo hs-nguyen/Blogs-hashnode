@@ -391,13 +391,14 @@ a.user-mention:hover {
   transition: all 0.3s ease;
 }
 .custom-signup-btn {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  color: var(--brand-primary);
-  font-weight: 600;
-  font-size: 0.875rem;
-  transition: all 0.3s ease;
+  background-color: var(--brand-600) !important;
+  border-color: var(--brand-600) !important;
+  color: white !important;
+}
+
+.custom-signup-btn:hover {
+  background-color: var(--brand-700) !important;
+  border-color: var(--brand-700) !important;
 }
 .project-arrow {
   width: 1rem;

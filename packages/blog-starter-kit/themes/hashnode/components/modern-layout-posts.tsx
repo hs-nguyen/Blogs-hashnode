@@ -32,13 +32,6 @@ const PublicationPosts = (props: {
               <article className="project-item brand-card group cursor-pointer" style={{ animationDelay: `${index * 150}ms` }}>
                 <div className="project-content">
                   <div className="project-header">
-                    <div className="project-tags">
-                      {post.tags?.slice(0, 2).map((tag: any) => (
-                        <span key={tag.id} className="project-tag">
-                          {tag.name}
-                        </span>
-                      ))}
-                    </div>
                     <span className="project-date">
                       {new Date(post.publishedAt).toLocaleDateString()}
                     </span>
@@ -68,7 +61,6 @@ const PublicationPosts = (props: {
             <div key={i} className="project-item brand-card animate-pulse">
               <div className="project-content">
                 <div className="project-header">
-                  <div className="h-4 w-20 bg-slate-200 dark:bg-slate-700 rounded" />
                   <div className="h-3 w-16 bg-slate-200 dark:bg-slate-700 rounded" />
                 </div>
                 <div className="h-6 w-3/4 bg-slate-200 dark:bg-slate-700 rounded mb-3" />
