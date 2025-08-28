@@ -38,6 +38,30 @@
   @apply bg-slate-900/80 border-brand-800/20;
 }
 
+/* Line clamp utilities */
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Connect section styling */
+.connect-section {
+  background: linear-gradient(135deg, rgba(217, 70, 239, 0.05) 0%, rgba(249, 115, 22, 0.05) 100%);
+}
+
+.dark .connect-section {
+  background: linear-gradient(135deg, rgba(217, 70, 239, 0.1) 0%, rgba(249, 115, 22, 0.1) 100%);
+}
+
 /* Tooltip start */
 
 .tooltip-handle {
@@ -260,6 +284,19 @@ a.user-mention {
 a.user-mention:hover {
   color: var(--brand-primary-hover) !important;
   border-color: var(--brand-primary-hover);
+}
+
+/* Project cards hover effects */
+.projects-section .brand-card:hover {
+  transform: translateY(-4px);
+}
+
+.projects-section .brand-card img {
+  transition: transform 0.3s ease;
+}
+
+.projects-section .brand-card:hover img {
+  transform: scale(1.05);
 }
 
 img.image--center {
