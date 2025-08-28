@@ -5,6 +5,7 @@
 		"lib": ["dom", "dom.iterable", "es6"],
 		"allowJs": true,
 		"skipLibCheck": true,
+		"noResolve": false,
 		"strict": true,
 		"forceConsistentCasingInFileNames": true,
 		"noEmit": true,
