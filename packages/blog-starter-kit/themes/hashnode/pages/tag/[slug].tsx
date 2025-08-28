@@ -37,7 +37,7 @@ export default function Post({ publication, posts, tag, slug, currentMenuId }: P
 		requestPolicy: 'cache-first',
 	});
 	const postData = data?.publication?.posts || posts;
-	const fetchedOnce = postData.edges.length > INITIAL_LIMIT;
+	const fetchedOnce = !!after;
 
 	const fetchMore = () => {
 		if (postData.pageInfo.hasNextPage) {
