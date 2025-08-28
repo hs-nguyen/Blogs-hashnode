@@ -89,8 +89,8 @@ function ResponseList(props: Props) {
 							</div>
 						</div>
 					</div>
-				)}
-		</div>
+				))
+			}</div>
 	);
 }
 
