@@ -527,3 +527,14 @@ img.image--right {
     background: var(--brand-gradient);
   }
 }
+/* Load More Button Override */
+.view-all-btn {
+  background-color: var(--brand-primary) !important;
+  border-color: var(--brand-primary) !important;
+  color: white !important;
+}
+
+.view-all-btn:hover {
+  background-color: var(--brand-primary) !important;
+  border-color: var(--brand-primary) !important;
+}
