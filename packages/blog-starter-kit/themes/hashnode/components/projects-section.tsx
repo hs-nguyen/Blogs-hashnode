@@ -7,15 +7,15 @@ type Props = {
 };
 
 export const ProjectsSection = ({ posts, publication }: Props) => {
-  const displayedPosts = posts.slice(0, 100);
-  const hasMorePosts = posts.length > 100;
+  const displayedPosts = posts.slice(0, 10);
+  const hasMorePosts = posts.length > 10;
 
   return (
     <section className="projects-section py-16 px-4">
       <div className="container mx-auto max-w-6xl">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-heading font-bold text-gray-900 dark:text-white mb-4">
-            Technical Projects List
+            Projects List
           </h2>
         </div>
         

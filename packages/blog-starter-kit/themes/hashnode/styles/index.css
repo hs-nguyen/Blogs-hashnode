@@ -390,7 +390,7 @@ a.user-mention:hover {
   font-size: 0.875rem;
   transition: all 0.3s ease;
 }
-.Source-code-link {
+.custom-signup-btn {
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -399,7 +399,6 @@ a.user-mention:hover {
   font-size: 0.875rem;
   transition: all 0.3s ease;
 }
-
 .project-arrow {
   width: 1rem;
   height: 1rem;

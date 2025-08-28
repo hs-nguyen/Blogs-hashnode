@@ -24,51 +24,69 @@ const PublicationPosts = (props: {
   const slicedPosts = edges.map((edge) => edge.node).slice(3);
 
   return (
-    <div className="blog-articles-area mx-auto mt-10 dark:border-slate-800">
-      <div className="blog-articles-container container mx-auto grid grid-cols-1 gap-10 px-4 py-4 md:grid-cols-2 lg:grid-cols-3 xl:py-10 xl:px-10 2xl:px-24 2xl:py-5">
-        {slicedPosts.map((post) => (
-          <BlogPostPreview key={post.id} post={post} publication={publication} />
-        ))}
-        {fetching && (
-          <>
-            <div className="col-span-1 animate-pulse">
-              <div
-                style={{ paddingTop: '52.5%' }}
-                className="mb-4 block w-full rounded-lg bg-slate-200 dark:border-slate-800"
-              />
-              <div className="mb-2 h-4 rounded-lg bg-slate-200 dark:border-slate-800" />
-              <div className="mb-2 h-4 rounded-lg bg-slate-200 dark:border-slate-800" />
-              <div className="mb-2 h-4 w-2/3 rounded-lg bg-slate-200 dark:border-slate-800" />
-              <div className="mb-2 h-4 w-1/2 rounded-lg bg-slate-200 dark:border-slate-800" />
+    <div className="projects-section py-16 px-4">
+      <div className="container mx-auto max-w-6xl">
+        <div className="projects-grid">
+          {slicedPosts.map((post, index) => (
+            <a key={post.id} href={`/${post.slug}`}>
+              <article className="project-item brand-card group cursor-pointer" style={{ animationDelay: `${index * 150}ms` }}>
+                <div className="project-content">
+                  <div className="project-header">
+                    <div className="project-tags">
+                      {post.tags?.slice(0, 2).map((tag: any) => (
+                        <span key={tag.id} className="project-tag">
+                          {tag.name}
+                        </span>
+                      ))}
+                    </div>
+                    <span className="project-date">
+                      {new Date(post.publishedAt).toLocaleDateString()}
+                    </span>
+                  </div>
+                  
+                  <h3 className="project-title">
+                    {post.title}
+                  </h3>
+                  
+                  <p className="project-description">
+                    {post.brief}
+                  </p>
+                  
+                  <div className="project-footer">
+                    <div className="project-link">
+                      <span>View Project</span>
+                      <svg className="project-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+              </article>
+            </a>
+          ))}
+          {fetching && Array.from({ length: 3 }, (_, i) => (
+            <div key={i} className="project-item brand-card animate-pulse">
+              <div className="project-content">
+                <div className="project-header">
+                  <div className="h-4 w-20 bg-slate-200 dark:bg-slate-700 rounded" />
+                  <div className="h-3 w-16 bg-slate-200 dark:bg-slate-700 rounded" />
+                </div>
+                <div className="h-6 w-3/4 bg-slate-200 dark:bg-slate-700 rounded mb-3" />
+                <div className="space-y-2 mb-4">
+                  <div className="h-3 w-full bg-slate-200 dark:bg-slate-700 rounded" />
+                  <div className="h-3 w-2/3 bg-slate-200 dark:bg-slate-700 rounded" />
+                </div>
+                <div className="h-4 w-24 bg-slate-200 dark:bg-slate-700 rounded" />
+              </div>
             </div>
-            <div className="col-span-1 animate-pulse">
-              <div
-                style={{ paddingTop: '52.5%' }}
-                className="mb-4 block w-full rounded-lg bg-slate-200 dark:border-slate-800"
-              />
-              <div className="mb-2 h-4 rounded-lg bg-slate-200 dark:border-slate-800" />
-              <div className="mb-2 h-4 rounded-lg bg-slate-200 dark:border-slate-800" />
-              <div className="mb-2 h-4 w-2/3 rounded-lg bg-slate-200 dark:border-slate-800" />
-              <div className="mb-2 h-4 w-1/2 rounded-lg bg-slate-200 dark:border-slate-800" />
-            </div>
-            <div className="col-span-1 animate-pulse">
-              <div
-                style={{ paddingTop: '52.5%' }}
-                className="mb-4 block w-full rounded-lg bg-slate-200 dark:border-slate-800"
-              />
-              <div className="mb-2 h-4 rounded-lg bg-slate-200 dark:border-slate-800" />
-              <div className="mb-2 h-4 rounded-lg bg-slate-200 dark:border-slate-800" />
-              <div className="mb-2 h-4 w-2/3 rounded-lg bg-slate-200 dark:border-slate-800" />
-              <div className="mb-2 h-4 w-1/2 rounded-lg bg-slate-200 dark:border-slate-800" />
-            </div>
-          </>
-        )}
+          ))}
+        </div>
         {pageInfo.hasNextPage && !fetchedOnce && !fetching ? (
-          <div className="col-span-1 flex flex-row justify-center py-10 md:col-span-2 lg:col-span-3">
+          <div className="text-center mt-12">
             <Button
               type="button"
               variant="transparent"
-              className="w-full justify-center px-4 py-2 text-lg text-blue-600 dark:text-blue-500"
+              className="btn-primary view-all-btn"
               onClick={fetchMore}
             >
               <span>Load more</span>
