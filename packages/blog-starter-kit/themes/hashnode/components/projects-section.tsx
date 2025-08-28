@@ -25,9 +25,6 @@ export const ProjectsSection = ({ posts, publication }: Props) => {
               <article 
                 className="project-item brand-card group cursor-pointer" 
                 style={{ animationDelay: `${index * 150}ms` }}
-                onClick={(e: any) => {
-                  e.currentTarget.classList.add('project-clicked');
-                }}
               >
                 <div className="project-content">
                   <div className="project-header">
@@ -54,6 +51,12 @@ export const ProjectsSection = ({ posts, publication }: Props) => {
                   <div className="project-footer">
                     <div className="project-link">
                       <span>View Project</span>
+                      <svg className="project-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                      </svg>
+                    </div>
+                    <div className="source-code-link">
+                      <span>Source Code</span>
                       <svg className="project-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                       </svg>
