@@ -1,4 +1,9 @@
+import { useState, useRef } from 'react';
+import dynamic from 'next/dynamic';
 import { Publication } from '../generated/graphql';
+import SearchSVG from './icons/svgs/SearchSvg';
+
+const PublicationSearch = dynamic(() => import('./publication-search'), { ssr: false });
 
 type Props = {
   publication: Publication;
@@ -6,6 +11,12 @@ type Props = {
 
 export const ConnectSection = ({ publication }: Props) => {
   const socialLinks = publication.links || {};
+  const [isSearchUIVisible, toggleSearchUIState] = useState(false);
+  const triggerRef = useRef<HTMLButtonElement>(null);
+
+  const toggleSearchUI = () => {
+    toggleSearchUIState(!isSearchUIVisible);
+  };
   
   return (
     <section className="connect-section py-16 px-4">
@@ -61,6 +72,25 @@ export const ConnectSection = ({ publication }: Props) => {
               </a>
             )}
           </div>
+
+          <div className="flex justify-center mb-8">
+            <button
+              ref={triggerRef}
+              onClick={toggleSearchUI}
+              className="bg-gray-100 hover:bg-gray-200 dark:bg-gray-800 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-300 font-medium px-6 py-3 rounded-lg transition-colors inline-flex items-center gap-2"
+            >
+              <SearchSVG className="w-5 h-5 stroke-current" />
+              Search Blog Posts
+            </button>
+          </div>
+
+          {isSearchUIVisible && (
+            <PublicationSearch 
+              publication={publication} 
+              toggleSearchUI={toggleSearchUI} 
+              triggerRef={triggerRef} 
+            />
+          )}
           
           <div className="text-sm text-gray-500 dark:text-gray-400">
             <p></p>

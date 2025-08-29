@@ -2,7 +2,6 @@ import { twJoin } from 'tailwind-merge';
 import { lightOrDark } from '../utils/commonUtils';
 import { useAppContext } from './contexts/appContext';
 import { Button } from './custom-button';
-import HeaderBlogSearch from './header-blog-search';
 import HeaderLeftSidebar from './header-left-sidebar';
 import PublicationLogo from './publication-logo';
 import PublicationNavLinks from './publication-nav-links';
@@ -42,7 +41,6 @@ export const Header = (props: Props) => {
 							'flex flex-row items-center gap-4','dark:text-white',
 						)}
 					>
-						<HeaderBlogSearch publication={publication} />
 						<Button as="a" href="https://hashnode.com/signup" type="primary" label="Sign Up" className="custom-signup-btn" />
 					</div>
 				</div>
