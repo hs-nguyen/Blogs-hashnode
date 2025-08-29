@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import { useState } from 'react';
 import { Publication } from '../generated/graphql';
 
 type Props = {
@@ -7,8 +7,17 @@ type Props = {
 };
 
 export const ProjectsSection = ({ posts, publication }: Props) => {
-  const displayedPosts = posts.slice(0, 30);
-  const hasMorePosts = posts.length > 30;
+  const INITIAL_DISPLAY_COUNT = 6;
+  const LOAD_MORE_COUNT = 6;
+  
+  const [displayCount, setDisplayCount] = useState(INITIAL_DISPLAY_COUNT);
+  
+  const displayedPosts = posts.slice(0, displayCount);
+  const hasMorePosts = posts.length > displayCount;
+  
+  const handleViewMore = () => {
+    setDisplayCount(prev => Math.min(prev + LOAD_MORE_COUNT, posts.length));
+  };
 
   return (
     <section className="projects-section py-16 px-4">
@@ -64,12 +73,15 @@ export const ProjectsSection = ({ posts, publication }: Props) => {
         
         {hasMorePosts && (
           <div className="projects-more">
-            <Link href="/" className="btn-primary view-all-btn">
-              <span>View All Projects</span>
+            <button 
+              onClick={handleViewMore}
+              className="btn-primary view-all-btn"
+            >
+              <span>View More</span>
               <svg className="btn-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </svg>
-            </Link>
+            </button>
           </div>
         )}
       </div>
