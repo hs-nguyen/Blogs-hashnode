@@ -7,8 +7,8 @@ type Props = {
 };
 
 export const ProjectsSection = ({ posts, publication }: Props) => {
-  const INITIAL_DISPLAY_COUNT = 6;
-  const LOAD_MORE_COUNT = 6;
+  const INITIAL_DISPLAY_COUNT = 8;
+  const LOAD_MORE_COUNT = 8;
   
   const [displayCount, setDisplayCount] = useState(INITIAL_DISPLAY_COUNT);
   
