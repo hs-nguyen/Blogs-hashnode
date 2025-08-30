@@ -2,7 +2,7 @@
 <browserconfig>
     <msapplication>
         <tile>
-            <square150x150logo src="/favicons/hashnode.png"/>
+            <square150x150logo src="/favicons/hashnode-icon.png"/>
             <TileColor>#000000</TileColor>
         </tile>
     </msapplication>
